@@ -18,7 +18,7 @@ public class CustomerController {
 
 private final CustomerService customerService;
 
-    @GetMapping("Customers")
+    @GetMapping("/Customers")
     public String findAll(Model model) {
         List<Customer> customers = customerService.findAll();
         model.addAttribute("Customers", customers);

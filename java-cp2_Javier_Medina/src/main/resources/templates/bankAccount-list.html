@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">>
+<head>
+    <meta charset="UTF-8">
+    <title>BankAccount List</title>
+</head>
+<body>
+<h1>Listado de Cuentas Bancarias</h1>
+
+<p th:text="${message}"></p>
+
+<ul>
+    <li th:each="bankAccount: ${bankAccounts}">
+        <span th:text="${bankAccount.identificador}"></span>
+        <span th:text="${bankAccount.saldo}"></span>
+        <span th:text="${bankAccount.tipo}"></span>
+        <span th:text="${bankAccount.coste}"></span>
+        <span th:text="${bankAccount.interes}"></span>
+        <span th:text="${bankAccount.customer}"></span>
+        <span th:text="${bankAccount.data}"></span>
+
+    </li>
+</ul>
+</body>
+</html>
