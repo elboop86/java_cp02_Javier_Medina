@@ -25,7 +25,7 @@ public class BankAccount {
     private int coste;
     private int interes;
     private String customer;
-    private Data data;
+    private String data;
 
     @Override
     public boolean equals(Object o) {
