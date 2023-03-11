@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 @ToString
@@ -19,13 +20,16 @@ public class BankAccount {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int identificador;
-    private int saldo;
+    private String identificador;
+    private Integer saldo;
     private String tipo;
-    private int coste;
-    private int interes;
+    private Integer coste;
+    private Integer interes;
     private String customer;
-    private String data;
+    private LocalDate data;
+
+    public BankAccount(Long id, String corriente, int saldo, String euro, int coste, int interes, String luisOsmaPerez, int i) {
+    }
 
     @Override
     public boolean equals(Object o) {

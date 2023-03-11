@@ -1,9 +1,6 @@
 package com.example.entities.OneToOne;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 
@@ -32,8 +29,12 @@ public class Address {
 
     }
 
+   @OneToOne
+   @JoinColumn(unique = true)
+   private Address customer;
 
 
-
+    public Address(Object o, String s, String s1, String madrid) {
+    }
 }
 
