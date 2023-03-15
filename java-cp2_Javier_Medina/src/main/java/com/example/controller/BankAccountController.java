@@ -22,6 +22,6 @@ public class BankAccountController {
         List<BankAccount> bankAccounts = bankAccountService.findAll();
         model.addAttribute("bankAccounts", bankAccounts);
         model.addAttribute("message", "Hola mundo");
-        return "bankAccount-list";
+        return "bankAccounts/bankAccount-list";
     }
 }
