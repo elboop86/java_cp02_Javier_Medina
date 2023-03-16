@@ -11,7 +11,7 @@ import java.util.Objects;
 
 @AllArgsConstructor
 @Getter
-@ToString
+
 @Setter
 @Builder
 @Entity
@@ -26,8 +26,8 @@ public class Caja {
 
     @OneToMany
     @JoinTable(name = "caja_cuentas_bancarias")
-    @ToString.Exclude // opcional
-    private List<BankAccount> cards = new ArrayList<>();
+
+    private List<BankAccount> bankAccounts = new ArrayList<>();
 
 
     public Caja() {
@@ -40,11 +40,11 @@ public class Caja {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Caja caja)) return false;
-        return getId().equals(caja.getId()) && getName().equals(caja.getName()) && getCif().equals(caja.getCif()) && getCards().equals(caja.getCards());
+        return Objects.equals(getId(), caja.getId()) && Objects.equals(getName(), caja.getName()) && Objects.equals(getCif(), caja.getCif()) && Objects.equals(getBankAccounts(), caja.getBankAccounts());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(), getCif(), getCards());
+        return Objects.hash(getId(), getName(), getCif(), getBankAccounts());
     }
 }

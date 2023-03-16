@@ -1,9 +1,6 @@
 package com.example.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -25,8 +22,12 @@ public class BankAccount {
     private String tipo;
     private Integer coste;
     private Integer interes;
-    private String customer;
     private LocalDate data;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Customer customer;
+
+
 
     public BankAccount(Long id, String corriente, int saldo, String euro, int coste, int interes, String luisOsmaPerez, int i) {
     }
