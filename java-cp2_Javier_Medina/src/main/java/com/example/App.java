@@ -4,10 +4,10 @@ package com.example;
 import com.example.entities.BankAccount;
 import com.example.entities.Customer;
 
-import com.example.entities.OneToMany.Caja;
-import com.example.entities.OneToMany.CajaRepository;
-import com.example.entities.OneToOne.Address;
-import com.example.entities.OneToOne.AddressRepository;
+import com.example.entities.Caja;
+import com.example.repository.CajaRepository;
+import com.example.entities.Address;
+import com.example.repository.AddressRepository;
 import com.example.repository.BankAccountRepository;
 import com.example.repository.CustomerRepository;
 

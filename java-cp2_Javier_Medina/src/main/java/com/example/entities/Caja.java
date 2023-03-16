@@ -1,6 +1,5 @@
-package com.example.entities.OneToMany;
+package com.example.entities;
 
-import com.example.entities.BankAccount;
 import jakarta.persistence.*;
 import lombok.*;
 
