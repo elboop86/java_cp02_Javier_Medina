@@ -7,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Slf4j
 @AllArgsConstructor
 @Service
@@ -17,5 +19,15 @@ public class BankAccountServiceImpl implements BankAccountService{
     public List<BankAccount> findAll() {
 
         return bankAccountRepository.findAll();
+    }
+
+    @Override
+    public Optional<BankAccount> findById(Long id) {
+        return Optional.empty();
+    }
+
+    @Override
+    public List<BankAccount> findAllByIdentificador(String identificador) {
+        return bankAccountRepository.findAllByIdentificador(identificador);
     }
 }
