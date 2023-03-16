@@ -31,8 +31,8 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Object findAllByNif(String nif) {
-        return customerRepository.findAllByNif();
+    public List<Customer> findAllByNif(String nif) {
+        return customerRepository.findAllByNif(nif);
     }
 
 
