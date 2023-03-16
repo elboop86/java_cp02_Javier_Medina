@@ -8,6 +8,6 @@ import java.util.List;
 public interface CustomerRepository extends JpaRepository<Customer,Long> {
     List<Customer> findAllByNif(String nif);
 
-
+    List<Customer> findAllByName(String name);
 
 }

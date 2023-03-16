@@ -35,5 +35,12 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.findAllByNif(nif);
     }
 
+    @Override
+    public Customer save(Customer customer) { return customerRepository.save(customer);
+
+    }
+
+
+
 
 }

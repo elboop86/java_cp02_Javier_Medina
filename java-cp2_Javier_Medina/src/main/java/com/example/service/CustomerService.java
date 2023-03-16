@@ -21,5 +21,6 @@ public interface CustomerService {
     Object findAllByNif(String nif);
 
 
+    Customer save(Customer customer);
 }
 

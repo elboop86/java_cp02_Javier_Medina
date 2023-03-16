@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Form</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+
+
+
+<body>
+
+
+<div class="container text-center">
+    <div class="row">
+
+        <h1 th:if="${customer.id}" class="h1-title">Modificar Customer <span th:text="${customer.id}"></span></h1>
+        <h1 th:if="${customer.id} == null" class="h1-title">Crear nuevo Cliente</h1>
+
+        <div class="col"></div>
+
+        <div class="col">
+
+            <div th:if="${error}">
+                <div class="alert alert-danger" role="alert" >
+                    <p th:text="${error}"></p>
+                </div>
+                <a type="button" class="btn btn-primary" th:href="@{/customers}">Volver</a>
+            </div>
+
+            <form th:if="${error} == null" th:action="@{/customers}" method="POST" th:object="${customer}">
+
+                <input type="hidden" id="id" name="id" th:field="*{id}" />
+
+                <div class="mb-3">
+                    <label for="nif" class="form-label">Nif</label>
+                    <input type="text" class="form-control" id="nif" th:field="*{nif}" >
+                </div>
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" th:field="*{name}">
+                </div>
+
+
+
+                <a class="btn btn-danger" th:href="@{/customers}">Cancelar</a>
+                <button type="submit" class="btn btn-success">Guardar</button>
+
+            </form>
+
+
+        </div>
+
+        <div class="col"></div>
+    </div>
+</div>
+
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
