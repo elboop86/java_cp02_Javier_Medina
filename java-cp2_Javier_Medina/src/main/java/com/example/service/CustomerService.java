@@ -18,9 +18,13 @@ public interface CustomerService {
 
     Optional<Customer> findById(Long id);
 
-    Object findAllByNif(String nif);
+    List<Customer> findAllByNif(String nif);
+
+   List<Customer> findAllByName(String name);
 
 
     Customer save(Customer customer);
+
+
 }
 

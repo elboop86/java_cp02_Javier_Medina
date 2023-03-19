@@ -26,20 +26,22 @@ private final CustomerService customerService;
     public String findAll(Model model) {
         List<Customer> customers = customerService.findAll();
         model.addAttribute("customers", customers);
-        model.addAttribute("message", "Hola mundo");
+
         return "customers/customer-list";
     }
+
+
 
     @GetMapping("/customers/{id}")
     public String findById(Model model, @PathVariable Long id) {
         Optional<Customer> customerOpt = customerService.findById(id);
 
         if(customerOpt.isPresent()) {
-            model.addAttribute("beer", customerOpt.get());
+            model.addAttribute("customer", customerOpt.get());
         } else {
             model.addAttribute("error", "404 Customer no encontrado");
         }
-        return "customers/customer-list";
+        return "customers/customer-detail";
     }
 
     @GetMapping("customers/nif/{nif}")
@@ -48,6 +50,14 @@ private final CustomerService customerService;
         return "customers/customer-list";
 
     }
+
+    @GetMapping("customers/name/{name}")
+    public String findByName(Model model, @PathVariable String name) {
+        model.addAttribute("customers",customerService.findAllByName(name));
+        return "customers/customer-list";
+
+    }
+
 // CREAR UN CUSTOMER
     @GetMapping("customers/create")
     public String createForm(Model model) {
@@ -60,7 +70,7 @@ private final CustomerService customerService;
     public String editForm(Model model, @PathVariable Long id) {
         Optional<Customer> customerOpt = customerService.findById(id);
         if (customerOpt.isPresent()) {
-            model.addAttribute("customer", customerOpt.get());
+            model.addAttribute("customers", customerOpt.get());
 
         } else {
             model.addAttribute("error", "Cliente no encontrado");

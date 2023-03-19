@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>BankAccount Detail</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+
+</head>
+<body>
+
+
+<div class="container text-center">
+    <div class="row">
+
+        <h1>Detalle de cuenta</h1>
+        <div class="col-3">
+            <div th:if="${error}">
+                <div class="alert alert-danger" role="alert">
+                    <p th:text="${error}"></p>
+                </div>
+                <a class="btn btn-primary" th:href="@{/bankAccounts}">Volver</a>
+            </div>
+
+
+            <div class="card" th:if="${error} == null">
+                <img src="https://dummyimage.com/300" class="card-img-top" alt="Supermarket Image">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${bankAccount.identificador}"></h5>
+                    <p class="card-text" th:text="|${bankAccount.interes} ${bankAccount.saldo}|"></p>
+                </div>
+                <div class="card-body">
+                    <a class="btn btn-primary" th:href="@{/bankAccounts}">Volver</a>
+                    <a class="btn btn-success" th:href="@{/bankAccounts/{id}/edit(id=${bankAccount.id})}">Editar</a>
+                    <a class="btn btn-danger" th:href="@{/bankAccounts/{id}/delete(id=${bankAccount.id})}">Borrar</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-9">
+
+            <div class="card mb-3" style="width: 18rem;">
+                <div class="card-header">
+                    Foods
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" th:each="bankAccount: ${bankAccounts}">
+                        <a class="btn btn-link" th:href="@{/bankAccounts/{id}(id=${bankAccount.id})}"
+                           th:text="${bankAccount.saldo}"></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card mb-3" style="width: 18rem;">
+                <div class="card-header">
+                    Addresses
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"
+                        th:each="address: ${customer.addresses}"
+                        th:text="|${address.calle} ${address.cp} ${address.ciudad}|">
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

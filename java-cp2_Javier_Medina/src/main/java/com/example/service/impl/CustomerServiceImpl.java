@@ -1,7 +1,8 @@
-package com.example.service;
+package com.example.service.impl;
 
 import com.example.entities.Customer;
 import com.example.repository.CustomerRepository;
+import com.example.service.CustomerService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -27,12 +28,17 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Optional<Customer> findById(Long id) {
-        return Optional.empty();
+        return customerRepository.findById(id);
     }
 
     @Override
     public List<Customer> findAllByNif(String nif) {
         return customerRepository.findAllByNif(nif);
+    }
+
+    @Override
+    public List<Customer> findAllByName(String name) {
+        return customerRepository.findAllByName(name);
     }
 
     @Override
